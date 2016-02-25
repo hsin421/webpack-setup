@@ -1,17 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Hello from './component';
+import TodoApp from './TodoApp.js';
 
-class App extends React.Component {
+class App extends React.Component{
 	render() {
-		return <Hello />;
+		return <TodoApp user="Mike" />
 	}
 }
 
+
+
 render(<App />, document.getElementById('app'))
-
-// 'use strict';
-// var component = require('./component.js');
-
-
-// document.body.appendChild(component());
