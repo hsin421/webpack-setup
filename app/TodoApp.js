@@ -1,43 +1,28 @@
 import React from 'react';
 import { fetchTodo } from './utils/db';
+import { connect } from 'react-redux';
 import TodosBoard from './TodosBoard.js';
 import TodoInput from './TodoInput';
-import AltStore from './flux/todoStore.js';
-import AltAction from './flux/actions.js';
+import { loadTodos, addTodo } from './redux/actions.js'
 
-export default class TodoApp extends React.Component{
+class TodoApp extends React.Component{
 	constructor(props) {
 		super(props);
-		this.state = {
-			todos: AltStore.getState().todos,
-			isLoading: AltStore.getState().isLoading
-		};
+		this.state = {};
 		this.state.newTodo = { content: '', struckThru: false };
 	}
 
-  componentDidMount() {
-  	fetchTodo(todos => AltAction.loadtodos(todos));
-    AltStore.listen(this._onChange);
-  }
+	 componentDidMount() {
+	  	fetchTodo(todos => this.props.dispatch(loadTodos(todos)));
+	 }
 
-  componentWillUnmount() {
-    AltStore.unlisten(this._onChange);
-  }
-
-  _onChange = () => {
-  	// console.log(JSON.stringify(AltStore.getState()));
-    this.setState({
-      todos: AltStore.getState().todos,
-      isLoading: AltStore.getState().isLoading
-    });
-  }
 
 	onInput = (e) => {
 		this.setState({ newTodo: {content: e.target.value }});
 	}
 
 	handleSave = () => {
-		AltAction.addtodo(this.state.newTodo);
+		this.props.dispatch(addTodo(this.state.newTodo));
 		this.setState({newTodo: {content: ''}});
 	}
 
@@ -50,7 +35,7 @@ export default class TodoApp extends React.Component{
 	}
 
 	handleDelete = (i) => {
-		AltAction.deletetodo(i);
+		this.props.dispatch(deleteTodo(i));
 		// this.setState({
 		// 	todos: [...this.state.todos.filter((todo, index) => index !== i )]
 		// });
@@ -73,8 +58,8 @@ export default class TodoApp extends React.Component{
 			<div>
 				<TodosBoard
 					handleEnter={this.handleEnter}
-					isLoading={this.state.isLoading}
-					todos={this.state.todos}
+					isLoading={this.props.isLoading}
+					todos={this.props.todos}
 					user={this.props.user}
 					handleStrikeThru={this.handleStrikeThru}
 					handleDelete={this.handleDelete} />
@@ -88,3 +73,15 @@ export default class TodoApp extends React.Component{
 			)
 	}
 }
+
+
+function mapStateToProps(state) {
+  return {
+    todos: state.todo.todos,
+    isLoading: state.todo.isLoading
+  }
+}
+
+let ReduxTodoApp = connect(mapStateToProps)(TodoApp);
+export default ReduxTodoApp;
+
