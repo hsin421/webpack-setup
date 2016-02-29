@@ -1,0 +1,12 @@
+.dayNamesRow {
+	display: flex;
+	justify-content: space-between;
+	height: 34px;
+}
+.dayName {
+	composes: cell from './calendar.css';
+	text-transform: uppercase;
+	font-size: 0.9rem;
+	text-align: center;
+	color: #a6a5a4;
+}

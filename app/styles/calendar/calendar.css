@@ -1,0 +1,82 @@
+.restCalendar {
+	/*composes: fadeIn from '../../helpers/sharedStyles.css';*/
+	background-color: #fff;	
+	margin-top: 20px;
+	margin-bottom: 100px;
+}
+.restCalendarShadowBox {
+	composes: restCalendar;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+}
+
+/******************
+Calendar Header
+*******************/
+.calendarHeader {
+	width: 100%;
+	overflow-y: visible;
+}
+.calendarHeaderShadowBox {
+	composes: calendarHeader;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+}
+.calendarNavbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap; 
+	background-color: #d8a350;
+	color: #fff;
+	> div {
+		border-right: 1px solid #fff;
+	}
+}
+
+
+
+	.calendarNavCenter {
+		display: flex;
+		justify-content: flex-end;
+		align-items:center;
+
+	}
+
+	.calendarPageToggle {
+		display: flex;
+		justify-content: space-between;
+		-ms-align-items: center;
+		align-items: center;
+	}
+		.monthBtn {
+			padding: 0px;
+		}
+		.prevMonthBtn {
+			composes: monthBtn;
+			background-image: url(../images/arrowLeftWh.png);
+		}
+		.currentMonthLabel {}
+
+		.nextMonthBtn {
+			composes: monthBtn;
+			background-image: url(../images/arrowRightWh.png);
+		}
+
+
+.calendarContainer {
+	border-top: 1px solid #eeeded;
+	padding: 10px;
+}
+.week {
+	display: flex;
+	justify-content: flex-start;
+	-ms-align-items: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+.cell {
+	display: inline-table; /* => week should have display flex and cell display block */
+	width: 14.2%;
+	padding: 0px;
+	margin: 0px;
+	outline: 0;
+}
