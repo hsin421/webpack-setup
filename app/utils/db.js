@@ -4,6 +4,17 @@ export function fetchTodo(cb) {
 		2000);
 }
 
+export function saveTodo(cb) {
+	setTimeout(() => {
+		if (Math.random(1) < 0.5) {
+			cb({error: false, message: 'Todo saved successfully!'})
+		} else {
+			cb({error: true, message: 'Oops, Todo failed to save :('})
+		}
+	},
+		1000);
+}
+
 export function fetchInitialTodos(cb) {
 	setTimeout(() => cb(fakeTodos.slice(0,15)),
 		800);

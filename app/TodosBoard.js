@@ -5,13 +5,14 @@ export default class TodosBoard extends React.Component{
 
 	render(){
 		let todos = this.props.todos.map((todo, i) => (
-			<TodoItem key={i} index={i} todo={todo} handleStrikeThru={this.props.handleStrikeThru} handleDelete={this.props.handleDelete} />
+			<TodoItem key={i} index={i} error={this.props.error} todoLength={this.props.todos.length} isSaving={this.props.isSaving} todo={todo} handleStrikeThru={this.props.handleStrikeThru} handleDelete={this.props.handleDelete} />
 			));
 		return (
 			<div>
 				<h2>{this.props.user + 's To Do App'} </h2>
 				<div style={{height: '200', width: '200', border: '2px solid blue', overflow: 'scroll', position: 'relative'}}>
 					{this.props.isLoading ? 'Loading data...' : todos}
+					{this.props.error && this.props.error}
 				</div>
 			</div>
 			)

@@ -6,3 +6,8 @@
 .todoItem {
 	composes: myColor;
 }
+
+.todoItemSaving {
+	composes: myColor;
+	opacity: 0.2;
+}

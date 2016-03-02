@@ -3,7 +3,7 @@ import { fetchTodo } from './utils/db';
 import { connect } from 'react-redux';
 import TodosBoard from './TodosBoard.js';
 import TodoInput from './TodoInput';
-import { loadTodos, addTodo } from './redux/actions.js'
+import { loadTodos, addTodo, searchTodos } from './redux/actions.js'
 
 class TodoApp extends React.Component{
 	constructor(props) {
@@ -53,14 +53,20 @@ class TodoApp extends React.Component{
 		});
 	}
 
+	handleSearch = (e) => {
+		this.props.dispatch(searchTodos(e.target.value));
+	}
+
 	render() {
 		return(
 			<div>
 				<TodosBoard
 					handleEnter={this.handleEnter}
 					isLoading={this.props.isLoading}
-					todos={this.props.todos}
+					todos={this.props.filtered}
 					user={this.props.user}
+					isSaving={this.props.isSaving}
+					error={this.props.error}
 					handleStrikeThru={this.handleStrikeThru}
 					handleDelete={this.handleDelete} />
 				<TodoInput
@@ -69,6 +75,7 @@ class TodoApp extends React.Component{
 					handleSave={this.handleSave}
 					handleKeyDown={this.handleKeyDown}
 					/>
+				<input placeholder="searching todos.." onChange={this.handleSearch} />
 			</div>
 			)
 	}
@@ -78,7 +85,10 @@ class TodoApp extends React.Component{
 function mapStateToProps(state) {
   return {
     todos: state.todo.todos,
-    isLoading: state.todo.isLoading
+    isLoading: state.todo.isLoading,
+    filtered: state.todo.filtered,
+    isSaving: state.todo.isSaving,
+    error: state.todo.error
   }
 }
 

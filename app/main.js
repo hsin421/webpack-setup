@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 // 	}
 // }
 
-const initialState = {todo: {todos: [], isLoading: true}};
+const initialState = {todo: {todos: [], isLoading: true, filtered: []}};
 const store = configureStore(initialState);
 
 render(  
