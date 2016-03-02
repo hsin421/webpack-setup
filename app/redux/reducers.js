@@ -1,5 +1,6 @@
 import { LOAD_TODOS, ADD_TODO_BEGIN, ADD_TODO_SUCCESS, ADD_TODO_ERROR, SEARCH_TODO } from './actions.js';
 import { combineReducers } from 'redux';
+import {reducer as formReducer} from 'redux-form';
 
 function todo(state = {}, action) {
   switch (action.type) {
@@ -47,7 +48,8 @@ function todo(state = {}, action) {
 }
 
 const rootReducer = combineReducers({
-  todo
+  todo,
+  form: formReducer
 })
 
 export default rootReducer

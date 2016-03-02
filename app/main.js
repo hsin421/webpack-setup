@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import TodoApp from './TodoApp.js';
 import configureStore from './redux/store.js';
 import { Provider } from 'react-redux';
+import Form from './redux-form/Form';
 
 // class App extends React.Component{
 // 	render() {
@@ -15,7 +16,7 @@ const store = configureStore(initialState);
 
 render(  
 	<Provider store={store}> 
-   		<TodoApp user={'Mikey'} /> 
+   		<Form />
   	</Provider>, document.getElementById('app'));
 
 require('./createDevToolWindow.js')(store);
