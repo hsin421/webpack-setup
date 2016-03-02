@@ -9,7 +9,6 @@ export default class TodosBoard extends React.Component{
 			));
 		return (
 			<div>
-				<h2>{this.props.user + 's To Do App'} </h2>
 				<div style={{height: '200', width: '200', border: '2px solid blue', overflow: 'scroll', position: 'relative'}}>
 					{this.props.isLoading ? 'Loading data...' : todos}
 					{this.props.error && this.props.error}

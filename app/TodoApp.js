@@ -60,11 +60,11 @@ class TodoApp extends React.Component{
 	render() {
 		return(
 			<div>
+				<h2>{this.props.user || 'Someone' + "'s To Do App"} </h2>
 				<TodosBoard
 					handleEnter={this.handleEnter}
 					isLoading={this.props.isLoading}
 					todos={this.props.filtered}
-					user={this.props.user}
 					isSaving={this.props.isSaving}
 					error={this.props.error}
 					handleStrikeThru={this.handleStrikeThru}

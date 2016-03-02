@@ -2,12 +2,13 @@ import React from 'react';
 import DayNames from './CalendarDayNames';
 import RestCalendarWeek from './CalendarWeek';
 import styles from '../styles/calendar/calendar.css';
+import moment from 'moment';
 
 export default class RestCalendar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			month: this.props.selected.clone(),
+			month: this.props.selected ? this.props.selected.clone() : moment().startOf('day').clone(),
 			selected: null,
 		};
 		this.onClickPrevious = this.onClickPrevious.bind(this);
