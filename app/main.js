@@ -7,19 +7,37 @@ import { Provider } from 'react-redux';
 import Form from './redux-form/Form';
 import Inbox from './inbox/Inbox';
 import Message from './inbox/Message';
+import Simple from './motion/simple';
+import Gallery from './motion/gallery';
 import Login from './inbox/Login';
 import Logout from './inbox/Logout';
-import { Router, Route, Link } from 'react-router';
+import Motion from './motion/main';
+import { Router, Route, Link, hashHistory } from 'react-router';
 import auth from './utils/auth';
+require('es6-promise').polyfill();
+let fetch = require('isomorphic-fetch');
 
 const ACTIVE = { color: 'red' }
 class App extends React.Component{
+  componentDidMount(){
+    fetch('http://reactjs102.herokuapp.com/products').then(
+      function(response) {
+        if (response.status >= 400) {
+            throw new Error("Bad response from server");
+        }
+        console.log(response);
+      
+    })
+  }
   render() {
     return (
       <div>
         <h1>My App</h1>
         <ul>
           <li><Link to="/todo" activeStyle={ACTIVE}>Todo App</Link></li>
+          <li><Link to="/motion" activeStyle={ACTIVE}>React Motion</Link></li>
+          <li><Link to="/simple" activeStyle={ACTIVE}>Simple Motion</Link></li>
+          <li><Link to="/gallery" activeStyle={ACTIVE}>Gallery</Link></li>
           <li><Link to="/reduxform" activeStyle={ACTIVE}>Redux Form</Link></li>
           <li><Link to="/calendar" activeStyle={ACTIVE}>Calendar</Link></li>
           <li><Link to="/inbox" activeStyle={ACTIVE}>Inbox</Link></li>
@@ -45,9 +63,12 @@ function requireAuth(nextState, replace) {
 
 render(  
 	<Provider store={store}> 
-   		<Router>
+   		<Router history={hashHistory}>
    			<Route path="/" component={App}>
 		      <Route path="todo" component={TodoApp} />
+          <Route path="simple" component={Simple} />
+          <Route path="motion" component={Motion} />
+          <Route path="gallery" component={Gallery} />
 		      <Route path="reduxform" component={Form} />
 		      <Route path="login" component={Login} />
 		      <Route path="logout" component={Logout} />
