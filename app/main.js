@@ -11,8 +11,10 @@ import Simple from './motion/simple';
 import Gallery from './motion/gallery';
 import Login from './inbox/Login';
 import Logout from './inbox/Logout';
+import CSS from './motion/cssAnimation';
 import Motion from './motion/main';
 import { Router, Route, Link, hashHistory } from 'react-router';
+import { RouteTransition } from 'react-router-transition';
 import auth from './utils/auth';
 require('es6-promise').polyfill();
 let fetch = require('isomorphic-fetch');
@@ -35,6 +37,7 @@ class App extends React.Component{
         <h1>My App</h1>
         <ul>
           <li><Link to="/todo" activeStyle={ACTIVE}>Todo App</Link></li>
+          <li><Link to="/css" activeStyle={ACTIVE}>CSS Animation</Link></li>
           <li><Link to="/motion" activeStyle={ACTIVE}>React Motion</Link></li>
           <li><Link to="/simple" activeStyle={ACTIVE}>Simple Motion</Link></li>
           <li><Link to="/gallery" activeStyle={ACTIVE}>Gallery</Link></li>
@@ -43,7 +46,7 @@ class App extends React.Component{
           <li><Link to="/inbox" activeStyle={ACTIVE}>Inbox</Link></li>
           {auth.loggedIn() && <li><Link to="/logout" >Logout</Link></li>}
         </ul>
-        {this.props.children || <h1> Welcome to Hsin's portfolio </h1>}
+            {this.props.children}
       </div>
     )
   }
@@ -67,6 +70,7 @@ render(
    			<Route path="/" component={App}>
 		      <Route path="todo" component={TodoApp} />
           <Route path="simple" component={Simple} />
+          <Route path="css" component={CSS} />
           <Route path="motion" component={Motion} />
           <Route path="gallery" component={Gallery} />
 		      <Route path="reduxform" component={Form} />

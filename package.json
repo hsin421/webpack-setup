@@ -29,6 +29,7 @@
     "react-motion": "^0.4.2",
     "react-redux": "^4.0.0",
     "react-router": "^2.0.0",
+    "react-router-transition": "0.0.4",
     "redux": "^3.0.4",
     "redux-devtools": "^2.1.5",
     "redux-form": "^4.2.0",
