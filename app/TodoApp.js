@@ -61,6 +61,11 @@ class TodoApp extends React.Component{
 		return(
 			<div>
 				<h2>{this.props.user || 'Someone' + "'s To Do App"} </h2>
+				<input 
+					className="form-control"
+					style={{width: 500}}
+					placeholder="searching todos.." 
+					onChange={this.handleSearch} />
 				<TodosBoard
 					handleEnter={this.handleEnter}
 					isLoading={this.props.isLoading}
@@ -75,7 +80,6 @@ class TodoApp extends React.Component{
 					handleSave={this.handleSave}
 					handleKeyDown={this.handleKeyDown}
 					/>
-				<input placeholder="searching todos.." onChange={this.handleSearch} />
 			</div>
 			)
 	}

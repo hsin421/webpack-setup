@@ -5,9 +5,10 @@
 
 .todoItem {
 	composes: myColor;
+	font-size: 30px;
 }
 
 .todoItemSaving {
-	composes: myColor;
+	composes: todoItem;
 	opacity: 0.2;
 }
