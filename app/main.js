@@ -12,6 +12,7 @@ import Gallery from './motion/gallery';
 import Login from './inbox/Login';
 import Logout from './inbox/Logout';
 import CSS from './motion/cssAnimation';
+import Example from './motion/example';
 import Motion from './motion/main';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { RouteTransition } from 'react-router-transition';
@@ -39,6 +40,7 @@ class App extends React.Component{
           <li><Link to="/todo" activeStyle={ACTIVE}>Todo App</Link></li>
           <li><Link to="/css" activeStyle={ACTIVE}>CSS Animation</Link></li>
           <li><Link to="/motion" activeStyle={ACTIVE}>React Motion</Link></li>
+          <li><Link to="/example" activeStyle={ACTIVE}>My Example</Link></li>
           <li><Link to="/simple" activeStyle={ACTIVE}>Simple Motion</Link></li>
           <li><Link to="/gallery" activeStyle={ACTIVE}>Gallery</Link></li>
           <li><Link to="/reduxform" activeStyle={ACTIVE}>Redux Form</Link></li>
@@ -70,6 +72,7 @@ render(
    			<Route path="/" component={App}>
 		      <Route path="todo" component={TodoApp} />
           <Route path="simple" component={Simple} />
+          <Route path="example" component={Example} />
           <Route path="css" component={CSS} />
           <Route path="motion" component={Motion} />
           <Route path="gallery" component={Gallery} />

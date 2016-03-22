@@ -131,11 +131,35 @@ li {
     width: 450px;
     height: 50px;
   }
-  .demo10-block {
+.demo10-block {
     position: absolute;
     width: 50px;
     height: 50px;
     border-radius: 4px;
     background-color: rgb(130, 181, 198);
-    /*transition: all 0.5s ease-in;*/
-  }
+    transition: all 0.5s ease-in;
+}
+
+.example {
+  width: 200px;
+  height: 100px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  background-color: red;
+  margin-left: 100px;
+  margin-top: 100px;
+  position: relative;
+}
+.close-btn {
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+  font-size: 16px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: white;
+  border-radius: 25px;
+  background-color: green;
+}

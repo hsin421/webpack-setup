@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import icon from '../styles/images/music1.png';
 import {TransitionMotion, spring, Motion} from 'react-motion'
 
-const options = ['Beatles', 'Michael Jackson', 'React', 'Apple', 'Google', 'Beauty'];
+const options = ['Beatles', 'Michael Jackson', 'Dianiel', 'React', 'Apple', 'Google', 'Beauty'];
 const selected = 'React Motion';
 //this element only has 1 state: open?
 export default class MyToggle extends React.Component {

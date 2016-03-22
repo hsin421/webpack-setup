@@ -26,7 +26,7 @@ const Demo = React.createClass({
 
             <div className="demo10">
               <div className="demo10-block" 
-              	style={{left: 0}} />
+              	style={this.state.open ? {left: 400} : {left: 0}} />
             </div>
       </div>
     );
