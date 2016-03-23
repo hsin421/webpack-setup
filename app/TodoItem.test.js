@@ -4,6 +4,8 @@ import { render } from 'react-dom';
 import TodosBoard from './TodosBoard.js';
 import TestUtils from 'react-addons-test-utils';
 
+const { click } = TestUtils.Simulate;
+
 describe('when <TodosBoard> is rendered',() => {
   let node;
   beforeEach(() => {
@@ -54,6 +56,26 @@ describe('when <TodosBoard> is rendered',() => {
     render(<App />, node, () => {
       expect(node.innerHTML).toMatch(/testing/);
       expect(node.innerHTML).toContain('learn karma');
+    })
+  });
+
+  it('calls a externally defined delete function',(done) => {
+    class App extends React.Component {
+      handleDelete = () => {
+        done();
+      }
+      render() {
+        const todos = [
+          {content: 'do testing'},
+          {content: 'learn karma'}
+        ]
+        return <TodosBoard 
+          handleDelete={this.handleDelete}
+          todos={todos} />;
+      }
+    }
+    render(<App />, node, () => {
+      click(node.querySelector('button'))
     })
   });
 
