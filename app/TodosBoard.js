@@ -9,7 +9,7 @@ export default class TodosBoard extends React.Component{
 			));
 		return (
 			<div>
-				<div style={{height: '400', width: '500', border: '2px solid blue', overflow: 'scroll', position: 'relative'}}>
+				<div className="todo" style={{height: '400', width: '500', border: '2px solid blue', overflow: 'scroll', position: 'relative'}}>
 					{this.props.isLoading ? 'Loading data...' : todos}
 					{this.props.error && this.props.error}
 				</div>

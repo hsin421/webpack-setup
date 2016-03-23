@@ -13,11 +13,12 @@ export default class TodoItem extends React.Component{
 					style={todo.struckThru ? {textDecoration: 'line-through'} : null}> 
 					{index + 1 + '. ' + todo.content}
 					</span>
-					<span 
-						style={{float: 'right'}}
+					<button 
+						className="btn btn-danger"
+						style={{float: 'right', marginTop: 10}}
 						onClick={() => this.props.handleDelete(index)} > 
 						x 
-					</span> 
+					</button> 
 			</div>
 			)
 	}
