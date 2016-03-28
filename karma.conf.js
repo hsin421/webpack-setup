@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = function (config) {
   config.set({
-    browsers: [ 'Chrome', 'Safari', 'Firefox' ],
+    browsers: [ 'Chrome' ],
     browserNoActivityTimeout: 30000,
     captureTimeout: 30000,
     frameworks: [ 'mocha' ],
