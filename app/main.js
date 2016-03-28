@@ -12,7 +12,7 @@ import Gallery from './motion/gallery';
 import Login from './inbox/Login';
 import Logout from './inbox/Logout';
 import Perf from './Perf/index';
-import Immutable from './immutablejs/index';
+// import Immutable from './immutablejs/index';
 import CSS from './motion/cssAnimation';
 import Example from './motion/example';
 import Motion from './motion/main';
@@ -83,7 +83,7 @@ render(
 		      <Route path="reduxform" component={Form} />
 		      <Route path="login" component={Login} />
           <Route path="perf" component={Perf} />
-          <Route path="immutable" component={Immutable} />
+          {/*<Route path="immutable" component={Immutable} />*/}
 		      <Route path="logout" component={Logout} />
 		      <Route path="calendar" component={Calendar} />
 		       <Route path="inbox" component={Inbox} onEnter={requireAuth}>
