@@ -7,11 +7,6 @@ for (let i = 0; i < 2000; i++)
   ITEMS.push({ id: ++guid, body: `item ${guid}` });
 
 class TodoItem extends React.Component {
-
-	shouldComponentUpdate(nextProps, nextState) {
-		return this.props.body !== nextProps.body;
-	}
-
   render () {
     return (
       <li>

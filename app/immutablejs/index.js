@@ -6,19 +6,19 @@ export default class Immutable extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      data: Map({ count: 0, items: List() })
+      data: //immutable data
     }
   }
 
   handleCountClick = () => {
     this.setState(({data}) => ({
-      data: data.update('count', v => v + 1)
+      data: // do immutable update
     }));
   }
 
   handleAddItemClick = () => {
     this.setState(({data}) => ({
-      data: data.update('items', list => list.push(data.get('count')))
+      data: // do immutable update
     }));
   }
 
@@ -29,11 +29,11 @@ export default class Immutable extends React.Component{
         <button onClick={this.handleCountClick}>Add to count</button>
         <button onClick={this.handleAddItemClick}>Save count</button>
         <div>
-          Count: {data.get('count')}
+          Count: {/*immutable getter*/}
         </div>
         Saved counts:
         <ul>
-          {data.get('items').map(item => 
+          {/* immutable list getters*/map(item => 
             <li>Saved: {item}</li>
           )}
         </ul>
