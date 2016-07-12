@@ -3,13 +3,16 @@ import React from 'react';
 import styles from './styles/TodoItem.css';
 
 type Props = {
-	index: boolean,
-	todo: Object,
+	index: number,
+	todo: {
+		content: string,
+		struckThru: boolean
+	},
 	todoLength: number,
 	isSaving: boolean,
 	error: string,
-	handleDelete: Function,
-	handleStrikeThru: Function
+	handleStrikeThru: Function,
+	handleDelete: (index: number) => void 
 };
 
 export default class TodoItem extends React.Component{
