@@ -1,0 +1,21 @@
+[ignore]
+.*/node_modules/.*
+.*/build/.*
+
+[libs]
+./flowInterfaces.js
+
+[options]
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=app
+
+module.system=haste
+module.name_mapper='.+\.s?css' -> 'CSSModule'
+strip_root=true
+esproposal.class_instance_fields=enable
+esproposal.class_static_fields=enable
+suppress_comment=.*\\$FlowIssue.*
+
+[include]
+./node_modules/
+./app/

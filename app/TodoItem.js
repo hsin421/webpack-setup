@@ -1,7 +1,20 @@
+/* @flow */
 import React from 'react';
 import styles from './styles/TodoItem.css';
 
+type Props = {
+	index: boolean,
+	todo: Object,
+	todoLength: number,
+	isSaving: boolean,
+	error: string,
+	handleDelete: Function,
+	handleStrikeThru: Function
+};
+
 export default class TodoItem extends React.Component{
+	props: Props;
+
 	render(){
 		let { index, todo, todoLength, isSaving, error } = this.props;
 		return(

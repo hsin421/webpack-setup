@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build",
-    "test": "mocha './app/*.spec.js' --compilers js:babel-core/register"
+    "test": "mocha './app/*.spec.js' --compilers js:babel-core/register --require setup.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,12 +17,13 @@
     "enzyme": "^2.2.0",
     "expect": "1.12.2",
     "expect-jsx": "2.1.2",
+    "flow-bin": "^0.28.0",
     "karma": "0.12.35",
     "karma-chrome-launcher": "0.1.12",
     "karma-cli": "0.0.4",
     "karma-firefox-launcher": "0.1.4",
-    "karma-safari-launcher": "0.1.1",
     "karma-mocha": "0.1.10",
+    "karma-safari-launcher": "0.1.1",
     "karma-sourcemap-loader": "0.3.5",
     "karma-webpack": "1.5.1",
     "mocha": "2.3.3",
